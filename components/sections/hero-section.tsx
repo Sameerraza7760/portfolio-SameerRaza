@@ -18,31 +18,52 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
   }, [])
 
   const initializeAnimations = () => {
-    // Hero title animation
+    // Continuous hero title animation
     if (heroTitleRef.current) {
-      const text = heroTitleRef.current.textContent
-      heroTitleRef.current.innerHTML = text
-        .split("")
-        .map((char, index) =>
-          char === " "
-            ? `<span class="space">&nbsp;</span>`
-            : `<span class="char" style="animation-delay: ${index * 0.1}s">${char}</span>`,
-        )
-        .join("")
+      const text = "Hello, I'm Muhammad Maaz"
+      const animateTitle = () => {
+        heroTitleRef.current.innerHTML = text
+          .split("")
+          .map((char, index) =>
+            char === " "
+              ? `<span class="space">&nbsp;</span>`
+              : `<span class="char" style="animation-delay: ${index * 0.1}s">${char}</span>`,
+          )
+          .join("")
+      }
+
+      animateTitle()
+      // Repeat animation every 8 seconds
+      setInterval(animateTitle, 8000)
     }
 
-    // Hero subtitle typewriter effect
+    // Continuous hero subtitle typewriter effect
     if (heroSubtitleRef.current) {
       const text = "Software Engineer"
-      heroSubtitleRef.current.innerHTML = ""
-      text.split("").forEach((char, index) => {
+      const animateSubtitle = () => {
+        heroSubtitleRef.current.innerHTML = ""
+        text.split("").forEach((char, index) => {
+          setTimeout(() => {
+            if (heroSubtitleRef.current) {
+              heroSubtitleRef.current.innerHTML += char === " " ? "&nbsp;" : char
+            }
+          }, index * 100)
+        })
+
+        // Clear and restart after completion
         setTimeout(
           () => {
-            heroSubtitleRef.current.innerHTML += char === " " ? "&nbsp;" : char
+            if (heroSubtitleRef.current) {
+              heroSubtitleRef.current.innerHTML = ""
+            }
           },
-          index * 100 + 1000,
+          text.length * 100 + 2000,
         )
-      })
+      }
+
+      animateSubtitle()
+      // Repeat animation every 5 seconds
+      setInterval(animateSubtitle, 5000)
     }
 
     // Hero description wave animation
