@@ -34,13 +34,13 @@ export default function ExperienceSection() {
       company: "BRB Group",
       period: "Nov 2024 - Present",
       type: "Full-time",
-      icon: "💼",
-      color: "from-blue-600 to-blue-800",
+      icon: "/images/brb_developers_logo.jpeg",
+      // color: "from-blue-600 to-blue-800",
       description:
         "I led the frontend development of intuitive payroll, document, and finance management interfaces, streamlining workflows and enhancing data accuracy. I crafted a unified IT and inventory dashboard featuring ticketing, device monitoring, asset allocation, and automated hosting reminders. I also engineered the frontend for an AI-driven content automation tool that generates SEO-focused blog posts and schedules social media campaigns.",
       achievements: [
         "Improved workflow efficiency by 40%",
-        "Led frontend team of 3 developers",
+        "Led frontend development efforts while collaborating cross-functionally with design and backend teams to deliver high-quality user interfaces.",
         "Implemented AI-driven automation tools",
       ],
     },
@@ -49,8 +49,8 @@ export default function ExperienceSection() {
       company: "BRB Group",
       period: "Aug 2024 – Sep 2024",
       type: "Contract",
-      icon: "🔧",
-      color: "from-green-600 to-green-800",
+      icon: "/images/brb_developers_logo.jpeg",
+      // color: "from-green-600 to-green-800",
       description:
         "Assisted in front-end development with a focus on UI/UX, API integration, and Git. Collaborated with cross-functional teams to streamline data handling and improve user experience.",
       achievements: [
@@ -64,8 +64,8 @@ export default function ExperienceSection() {
       company: "Neuramatics.Co.",
       period: "Nov 2023 - Feb 2024",
       type: "Contract",
-      icon: "🚀",
-      color: "from-purple-600 to-purple-800",
+      icon: "/images/neuramatics.jpeg",
+      // color: "from-purple-600 to-purple-800",
       description:
         "Frontend Developer at Neuramatics.Co. as a frontend developer, where I gained hands-on experience with React.js Library in JavaScript. My responsibilities included development in front-end tasks, debugging code, and collaborating with the project team to enhance user interface functionality and improvement of overall UI/UX Experience.",
       achievements: ["Delivered 5+ React.js projects", "Reduced bug reports by 30%", "Enhanced UI/UX design patterns"],
@@ -75,8 +75,8 @@ export default function ExperienceSection() {
       company: "Dimensional Sys, Inc.",
       period: "Aug 2023 - Nov 2023",
       type: "Internship",
-      icon: "📊",
-      color: "from-orange-600 to-orange-800",
+      icon: "/images/dimensional_systems_logo.jpeg",
+      // color: "from-orange-600 to-orange-800",
       description:
         "Frontend Support Intern at Dimensional Sys, Inc. – Gained hands-on experience with React.js and Vue 3, assisting in development, debugging, and UI enhancements. Developed interactive data visualizations and charting components using D3.js. Where I learned reverse engineering of legacy front-end code to troubleshoot defects, document architecture, and drive performance improvements.",
       achievements: [
@@ -90,8 +90,8 @@ export default function ExperienceSection() {
       company: "Coderatory",
       period: "Feb 2022 - Apr 2022",
       type: "Internship",
-      icon: "🌱",
-      color: "from-teal-600 to-teal-800",
+      icon: "/images/coderatory_logo.jpeg",
+      // color: "from-teal-600 to-teal-800",
       description:
         "At Coderatory internship, I learned web development tech, including Node.js for fast apps and Express.js for easy web dev. Gained hands-on MongoDB experience for structured data storage. Improved web app creation and data management skills.",
       achievements: [
@@ -140,7 +140,12 @@ export default function ExperienceSection() {
                     <div
                       className={`bg-gradient-to-r ${exp.color} p-5 rounded-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl`}
                     >
-                      <span className="text-3xl text-white filter drop-shadow-lg">{exp.icon}</span>
+                      {/* <span className="text-3xl text-white filter drop-shadow-lg">{exp.icon}</span> */}
+                                   <img
+  src={exp.icon}
+  
+  className="w-14 h-14 rounded-md object-contain"
+/>
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">

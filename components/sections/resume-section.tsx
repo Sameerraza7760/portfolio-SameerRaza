@@ -6,13 +6,14 @@ import { Card, CardContent } from "@/components/ui/card"
 
 export default function ResumeSection() {
   const downloadCV = () => {
-    const link = document.createElement("a")
-    link.href = "/placeholder.pdf"
-    link.download = "Muhammad_Maaz_CV.pdf"
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
+  const link = document.createElement("a");
+  link.href = "/Muhammad-Maaz-CV.pdf"; 
+  link.download = "Muhammad_Maaz_CV.pdf"; 
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+
 
   return (
     <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 via-purple-50 to-pink-50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 relative overflow-hidden">
@@ -46,12 +47,17 @@ export default function ResumeSection() {
                 {/* Resume Header */}
                 <div className="text-center mb-8 pb-6 border-b border-gray-200 dark:border-gray-700">
                   <div className="w-24 h-24 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <User className="h-12 w-12 text-white" />
+                    {/* <User className="h-12 w-12 text-white" /> */}
+                    <img
+    src="/images/maaz.png"
+    alt="Profile"
+    className="w-full h-full object-cover rounded-full"
+  />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Muhammad Maaz</h3>
                   <p className="text-lg text-blue-600 dark:text-blue-400 font-medium">Software Engineer</p>
                   <p className="text-gray-600 dark:text-gray-400 mt-2">
-                    muhammad.maaz@email.com | +1 (555) 123-4567 | San Francisco, CA
+                    maazm6387@gmail.com | +92 3102400211 | Karachi , Pakistan
                   </p>
                 </div>
 
@@ -64,9 +70,11 @@ export default function ResumeSection() {
                       Professional Summary
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                      Passionate Software Engineer with 2+ years of experience in full-stack development. Specialized in
-                      React.js, Node.js, and modern web technologies. Proven track record of delivering high-quality
-                      applications and leading development teams.
+                      A dedicated and detail-oriented Frontend Developer with strong command over modern JavaScript frameworks 
+including React, Vue3, and SvelteKit. I specialize in building responsive UI/UX designs and integrating APIs, with 
+working knowledge of backend technologies like Node.js, Express, and Python’s FastAPI. I am well-versed in SDLC, 
+Agile & SCRUM methodologies, and tools like JIRA and Git. Known for cross-functional collaboration, clean code 
+practices, debugging, and a research-driven approach, I aim to deliver scalable and efficient web applications.
                     </p>
                   </div>
 
@@ -116,7 +124,7 @@ export default function ResumeSection() {
                       Technical Skills
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {["React", "Node.js", "TypeScript", "MongoDB", "Next.js", "Vue.js"].map((skill) => (
+                      {["React", "Node.js", "TypeScript","Python" ,"MongoDB", "Next.js", "Vue.js"].map((skill) => (
                         <span
                           key={skill}
                           className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full"
@@ -159,7 +167,7 @@ export default function ResumeSection() {
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600 dark:text-gray-400 text-sm">Experience</span>
-                    <span className="font-semibold text-blue-600 dark:text-blue-400">2+ Years</span>
+                    <span className="font-semibold text-blue-600 dark:text-blue-400">2 Years</span>
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600 dark:text-gray-400 text-sm">Projects</span>

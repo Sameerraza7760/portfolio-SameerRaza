@@ -160,7 +160,7 @@ export default function AboutSection() {
       type: "Bachelor's Degree",
       description: "Focused on software development methodologies, algorithms, and system design.",
       gpa: "3.16/4.0",
-      icon: "🎓",
+      icon: "/images/ssuet-removebg-preview.png",
     },
     {
       degree: "Senior Secondary (Pre-Engineering)",
@@ -169,7 +169,7 @@ export default function AboutSection() {
       type: "Higher Secondary",
       description: "Mathematics, Physics, and Chemistry with engineering fundamentals.",
       gpa: "C Grade",
-      icon: "📚",
+      icon: "/images/Sample_User_Icon.png",
     },
     {
       degree: "High School (Computer Science)",
@@ -178,7 +178,7 @@ export default function AboutSection() {
       type: "Secondary School",
       description: "Introduction to programming concepts and computer science principles.",
       gpa: "A Grade",
-      icon: "💻",
+      icon: "/images/alhuda.png",
     },
   ]
 
@@ -187,43 +187,44 @@ export default function AboutSection() {
       title: "Project Management",
       provider: "Great Learning",
       year: "2024",
-      icon: "📋",
-      color: "bg-blue-500",
+      icon: "/images/great_learning_logo.jpeg",
+      // color: "bg-blue-500",
     },
     {
       title: "Managing Agile Scrum Project with JIRA",
       provider: "10 Pearls University",
       year: "2024",
-      icon: "🔄",
-      color: "bg-green-500",
-    },
-    {
-      title: "Front-End Web UI Frameworks & Tools: Bootstrap 4",
-      provider: "Coursera",
-      year: "2023",
-      icon: "🎨",
-      color: "bg-purple-500",
+      icon: "/images/10pearls_university_logo.jpeg",
+      // color: "bg-green-500",
     },
     {
       title: "Agile & Scrum",
       provider: "10 Pearls University",
       year: "2024",
-      icon: "⚡",
-      color: "bg-orange-500",
+      icon: "/images/10pearls_university_logo.jpeg",
+      // color: "bg-orange-500",
     },
+    {
+      title: "Front-End Web UI Frameworks & Tools: Bootstrap 4",
+      provider: "Coursera",
+      year: "2023",
+      icon: "/images/coursera_logo.jpeg",
+      // color: "bg-purple-500",
+    },
+    
     {
       title: "React Js",
       provider: "Coursera",
       year: "2023",
-      icon: "⚛️",
-      color: "bg-cyan-500",
+      icon: "/images/coursera_logo.jpeg",
+      // color: "bg-cyan-500",
     },
     {
       title: "Python Basic & Python DSA",
       provider: "Coursera",
-      year: "2022",
-      icon: "🐍",
-      color: "bg-yellow-500",
+      year: "2023",
+      icon: "/images/coursera_logo.jpeg",
+      // color: "bg-yellow-500",
     },
   ]
 
@@ -319,8 +320,13 @@ export default function AboutSection() {
                 >
                   <CardContent className="p-8">
                     <div className="flex items-start space-x-6">
-                      <div className="bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 p-4 rounded-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
-                        <span className="text-2xl filter drop-shadow-lg">{edu.icon}</span>
+                      <div className="bg-white p-4 rounded-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
+                        {/* <span className="text-2xl filter drop-shadow-lg">{edu.icon}</span> */}
+                                              <img
+  src={edu.icon}
+  
+  className="w-14 h-14 rounded-md object-contain"
+/>
                       </div>
                       <div className="flex-1">
                         <div className="flex justify-between items-start mb-3">
@@ -364,9 +370,15 @@ export default function AboutSection() {
                   <CardContent className="p-6">
                     <div className="flex items-center space-x-6">
                       <div
-                        className={`${cert.color} p-3 rounded-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}
+                        className={` p-3 rounded-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg`}
                       >
-                        <span className="text-white text-xl filter drop-shadow-sm">{cert.icon}</span>
+                        {/* <span className="text-white text-xl filter drop-shadow-sm">{cert.icon}</span> */}
+                        <img
+  src={cert.icon}
+  alt={cert.title}
+  className="w-14 h-14 rounded-md object-contain"
+/>
+
                       </div>
                       <div className="flex-1">
                         <h4 className="font-bold text-lg mb-2 text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
