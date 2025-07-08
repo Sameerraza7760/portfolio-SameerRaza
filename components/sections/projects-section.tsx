@@ -99,6 +99,7 @@ export default function ProjectsSection() {
       description:
         "This is a web-based platform that allows users to upload files. Upon upload, a unique URL is generated for each file, which can then be shared with others. Users can access the URL to download the file. The platform is built using the FARM stack, which includes: FastAPI for the backend API, React for the frontend, MongoDB as the database.",
       tech: ["React", "FastAPI", "MongoDB", "Shadcn"],
+      github: "https://github.com/MuhammadMaaz2001/file-sharing",
       image: "/images/file-upload-thumbnail.png",
       featured: false,
     },
@@ -111,26 +112,26 @@ export default function ProjectsSection() {
       image: "/images/filemanagement.png",
       featured: false,
     },
-    {
-      title: "Learning Management System",
-      description:
-        "A comprehensive LMS platform with course creation, student progress tracking, and interactive learning modules.",
-      tech: ["React", "Node.js", "MongoDB", "Socket.io"],
-      privateRepo: true,
-      demo: "https://example.com/demo7",
-      image: "/lms.jpg",
-      featured: false,
-    },
-    {
-      title: "Restaurant Booking System",
-      description:
-        "A modern restaurant reservation system with table management, customer notifications, and analytics dashboard.",
-      tech: ["Vue.js", "Express", "MySQL", "Stripe"],
-      github: "https://github.com/maaz/restaurant-booking",
-      demo: "https://example.com/demo8",
-      image: "/restaurant.jpg",
-      featured: false,
-    },
+    // {
+    //   title: "Learning Management System",
+    //   description:
+    //     "A comprehensive LMS platform with course creation, student progress tracking, and interactive learning modules.",
+    //   tech: ["React", "Node.js", "MongoDB", "Socket.io"],
+    //   privateRepo: true,
+    //   demo: "https://example.com/demo7",
+    //   image: "/lms.jpg",
+    //   featured: false,
+    // },
+    // {
+    //   title: "Restaurant Booking System",
+    //   description:
+    //     "A modern restaurant reservation system with table management, customer notifications, and analytics dashboard.",
+    //   tech: ["Vue.js", "Express", "MySQL", "Stripe"],
+    //   github: "https://github.com/maaz/restaurant-booking",
+    //   demo: "https://example.com/demo8",
+    //   image: "/restaurant.jpg",
+    //   featured: false,
+    // },
   ]
 
   const featuredProjects = allProjects.filter((project) => project.featured)

@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import { useState ,useEffect } from "react"
 import { Mail, Phone, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -8,6 +8,14 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 
 export default function ContactSection() {
+   const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
@@ -28,6 +36,46 @@ export default function ContactSection() {
 
     return () => observer.disconnect()
   }, [])
+   const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY, 
+      name: `${formData.firstName} ${formData.lastName}`,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Message sent successfully!");
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        alert("Failed to send message.");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
+  };
 
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
@@ -78,7 +126,7 @@ export default function ContactSection() {
           {/* Contact Form */}
           <Card className="shadow-lg animate-on-scroll contact-form">
             <CardContent className="p-6">
-              <form className="space-y-6">
+              {/* <form className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium mb-2">First Name</label>
@@ -124,7 +172,70 @@ export default function ContactSection() {
                 <Button className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover-glow-button">
                   Send Message
                 </Button>
-              </form>
+              </form> */}
+              <form className="space-y-6" onSubmit={handleSubmit}>
+  <div className="grid sm:grid-cols-2 gap-4">
+    <div>
+      <label className="block text-sm font-medium mb-2">First Name</label>
+      <Input
+        name="firstName"
+        value={formData.firstName}
+        onChange={handleChange}
+        placeholder="John"
+        className="w-full hover:scale-105 transition-transform duration-300 focus:scale-105"
+      />
+    </div>
+    <div>
+      <label className="block text-sm font-medium mb-2">Last Name</label>
+      <Input
+        name="lastName"
+        value={formData.lastName}
+        onChange={handleChange}
+        placeholder="Doe"
+        className="w-full hover:scale-105 transition-transform duration-300 focus:scale-105"
+      />
+    </div>
+  </div>
+
+  <div>
+    <label className="block text-sm font-medium mb-2">Email</label>
+    <Input
+      type="email"
+      name="email"
+      value={formData.email}
+      onChange={handleChange}
+      placeholder="john@example.com"
+      className="w-full hover:scale-105 transition-transform duration-300 focus:scale-105"
+    />
+  </div>
+
+  <div>
+    <label className="block text-sm font-medium mb-2">Subject</label>
+    <Input
+      name="subject"
+      value={formData.subject}
+      onChange={handleChange}
+      placeholder="Project Inquiry"
+      className="w-full hover:scale-105 transition-transform duration-300 focus:scale-105"
+    />
+  </div>
+
+  <div>
+    <label className="block text-sm font-medium mb-2">Message</label>
+    <Textarea
+      name="message"
+      value={formData.message}
+      onChange={handleChange}
+      placeholder="Tell me about your project..."
+      className="w-full h-32 resize-none hover:scale-105 transition-transform duration-300 focus:scale-105"
+    />
+  </div>
+
+  <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover-glow-button">
+    Send Message
+  </Button>
+</form>
+
             </CardContent>
           </Card>
         </div>
