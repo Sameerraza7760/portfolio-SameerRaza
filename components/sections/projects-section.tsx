@@ -64,27 +64,51 @@ export default function ProjectsSection() {
       title: "Reddit Comment Extractor",
       description:
         "Reddit Comment Extractor is a web app built with Next.js and Tailwind CSS that allows users to fetch all comments from any Reddit post by simply entering the post URL. It displays nested replies, usernames, and full comment threads in a clean, organized format. Useful for data analysis, content review, or research.",
-      tech: ["Vue.js", "D3.js", "Firebase", "Chart.js"],
-      github: "https://github.com/maaz/social-analytics",
+      tech: ["Nextjs", "Shadcn", "Tailwindcss", ],
+      github: "https://github.com/Farhan5217/comment-extractor-frontend",
       image: "/images/reddit.png",
       featured: false,
     },
     {
-      title: "AI Content Generator",
+      title: "URL Shortener",
       description:
-        "An AI-powered content generation tool that creates blog posts, social media content, and marketing copy using advanced NLP.",
-      tech: ["Next.js", "OpenAI API", "Prisma", "Tailwind"],
-      github: "https://github.com/maaz/ai-content-generator",
-      demo: "https://example.com/demo5",
-      image: "/ai-generator.jpg",
+        "This is a web-based URL shortener application that allows users to input a long URL and generate a shortened version for easy sharing and access. Users can use the shortened URL to quickly redirect to the original longer URL. The Stack for this app is FARM stack.",
+      tech: ["React", "FastAPi", "MongoDB", "Tailwindcss"],
+      github: "https://github.com/MuhammadMaaz2001/URL-Shortener-FARM-Stack-",
+      image: "/images/url-thubmnail.png",
+      featured: false,
+    },
+     {
+    title: "E-Commerce Platform",
+    description: "A full-stack e-commerce solution...",
+    tech: ["React", "Node.js", "MongoDB", "Redux"],
+    github: "https://github.com/MuhammadMaaz2001/backend-ecommerce",
+    image: "/images/E-commerce.jpg", // Make sure this path is correct
+    featured: true,
+  },
+     {
+    title: "Konnect-It",
+    description: "A Real time chat Application on FARM Stack.",
+    tech: ["React", "FastAPi", "MongoDB", "Socket"],
+    github: "https://github.com/MuhammadMaaz2001/konnect-it", // Unique URL
+    image: "/images/konnectit.png", // Unique image
+    featured: true,
+  },
+    {
+      title: "File Upload",
+      description:
+        "This is a web-based platform that allows users to upload files. Upon upload, a unique URL is generated for each file, which can then be shared with others. Users can access the URL to download the file. The platform is built using the FARM stack, which includes: FastAPI for the backend API, React for the frontend, MongoDB as the database.",
+      tech: ["React", "FastAPI", "MongoDB", "Shadcn"],
+      image: "/images/file-upload-thumbnail.png",
       featured: false,
     },
     {
-      title: "Crypto Portfolio Tracker",
+      title: "Drive ( File Management System)",
       description:
-        "A real-time cryptocurrency portfolio tracking application with price alerts, news integration, and performance analytics.",
-      tech: ["React", "CoinGecko API", "Redux", "Material-UI"],
-      image: "/crypto-tracker.jpg",
+        "A secure and scalable backend system for a file drive/storage app built with Node.js, Express, MongoDB, and Cloudinary. It supports features like user authentication, file uploads, activity logs, and admin-level monitoring.",
+      tech: ["React", "Node.js", "MongoDB", "Cloudnary"],
+      github: "https://github.com/MuhammadMaaz2001/drive_backend",
+      image: "/lms.jpg",
       featured: false,
     },
     {
@@ -177,7 +201,7 @@ export default function ProjectsSection() {
                       ))}
                     </div>
 
-                    <div className="flex gap-3">
+                    {/* <div className="flex gap-3">
                       {project.github && !project.privateRepo && (
                         <Button
                           variant="outline"
@@ -219,7 +243,54 @@ export default function ProjectsSection() {
                           Demo Not Available
                         </Button>
                       )}
-                    </div>
+                    </div> */}
+                  <div className="flex gap-3">
+  {/* GitHub Button */}
+  {project.github ? (
+    project.privateRepo ? (
+      <Button
+        variant="outline"
+        size="sm"
+        className="flex-1 cursor-not-allowed opacity-70"
+        disabled
+      >
+        <Github className="h-4 w-4 mr-2" />
+        Private Repo
+      </Button>
+    ) : (
+      <Button
+        variant="outline"
+        size="sm"
+        className="flex-1 group-hover:border-blue-600 group-hover:text-blue-600 transition-all duration-300 bg-transparent hover:scale-105"
+        onClick={() => window.open(project.github, "_blank")}
+      >
+        <Github className="h-4 w-4 mr-2" />
+        GitHub
+      </Button>
+    )
+  ) : null}
+
+  {/* Demo Button */}
+  {project.demo ? (
+    <Button
+      size="sm"
+      className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-300"
+      onClick={() => window.open(project.demo, "_blank")}
+    >
+      <ExternalLink className="h-4 w-4 mr-2" />
+      Live Demo
+    </Button>
+  ) : (
+    <Button
+      size="sm"
+      className="flex-1 bg-gray-300 dark:bg-gray-600 cursor-not-allowed opacity-70"
+      disabled
+    >
+      <ExternalLink className="h-4 w-4 mr-2" />
+      {project.github ? 'Demo Not Available' : 'No Links Available'}
+    </Button>
+  )}
+</div>
                   </div>
                 </CardContent>
               </Card>
@@ -331,11 +402,19 @@ export default function ProjectsSection() {
             </div>
             <div className="p-6">
               <div className="rounded-lg mb-6 overflow-hidden">
-                <img
+                {/* <img
                   src={selectedProject.image || `/placeholder.svg?height=400&width=800&text=${encodeURIComponent(selectedProject.title)}`}
                   alt={`${selectedProject.title} screenshot`}
                   className="w-full h-auto max-h-96 object-contain"
-                />
+                /> */}
+                <img
+  src={project.image || `/placeholder.svg?height=200&width=400&text=${encodeURIComponent(project.title)}`}
+  alt={`${project.title} screenshot`}
+  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+  onError={(e) => {
+    e.target.src = `/placeholder.svg?height=200&width=400&text=${encodeURIComponent(project.title)}`;
+  }}
+/>
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
