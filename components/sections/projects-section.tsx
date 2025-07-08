@@ -30,42 +30,43 @@ export default function ProjectsSection() {
     return () => observer.disconnect()
   }, [])
 
-  // Extended projects array with more projects
+  // Extended projects array with more projects and different link scenarios
   const allProjects = [
     {
-      title: "E-Commerce Platform",
+      title: "Urdu Ibdaa",
       description:
-        "A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.",
-      tech: ["React", "Node.js", "MongoDB", "Stripe"],
-      github: "https://github.com/maaz/ecommerce-platform",
-      demo: "https://example.com/demo1",
+        "Urdu Ibdaa - Urdu Paraphrasing Tool Urdu Ibdaa is a web-based tool that paraphrases Urdu text into alternative expressions. Built using Svelte JS and styled with Tailwind CSS, it offers a fast, responsive, and user-friendly interface for Urdu text paraphrasing.",
+      tech: ["Svelte", "FastAPi", "Tailwindcss",],
+      github: "https://github.com/MuhammadMaaz2001/Urdu-Ibdaa",
+      image: "images/ibdaa.png",
       featured: true,
     },
     {
-      title: "Task Management App",
+      title: "Meta Ads Campaing Dashboard",
       description:
-        "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      tech: ["React", "Socket.io", "Express", "PostgreSQL"],
+        "Meta Ads Campaign Dashboard is a dynamic web app to manage and track Meta ad campaigns. It organizes data by ad accounts and displays campaigns with real-time performance insights. Users can view metrics like impressions, reach, and clicks. The dashboard features smooth animations, progress bars, and a clean, responsive UI for a seamless experience.",
+      tech: ["React", "Tailwindcss", "D3.js", "ReCharts"],
       github: "https://github.com/maaz/task-manager",
-      demo: "https://example.com/demo2",
+      demo: "https://dash-board-meta.vercel.app/",
+      image: "images/thumbnail.png",
       featured: true,
     },
     {
-      title: "Weather Dashboard",
+      title: "Financial Advisor",
       description:
-        "A responsive weather application with location-based forecasts, interactive maps, and detailed weather analytics.",
-      tech: ["React", "OpenWeather API", "Chart.js", "Tailwind"],
-      github: "https://github.com/maaz/weather-dashboard",
-      demo: "https://example.com/demo3",
+        "An AI-powered application designed to analyze user inputs and offer personalized financial advice, helping users make informed financial decisions.",
+      tech: ["React", "OpenAI API", "FastAPi", "TailwindCss"],
+      demo: "https://financial-guide-ai.vercel.app/",
+      image: "images/financial.png",
       featured: true,
     },
     {
-      title: "Social Media Analytics",
+      title: "Reddit Comment Extractor",
       description:
-        "A comprehensive analytics platform for social media metrics with real-time data visualization and reporting features.",
+        "Reddit Comment Extractor is a web app built with Next.js and Tailwind CSS that allows users to fetch all comments from any Reddit post by simply entering the post URL. It displays nested replies, usernames, and full comment threads in a clean, organized format. Useful for data analysis, content review, or research.",
       tech: ["Vue.js", "D3.js", "Firebase", "Chart.js"],
       github: "https://github.com/maaz/social-analytics",
-      demo: "https://example.com/demo4",
+      image: "/images/reddit.png",
       featured: false,
     },
     {
@@ -75,6 +76,7 @@ export default function ProjectsSection() {
       tech: ["Next.js", "OpenAI API", "Prisma", "Tailwind"],
       github: "https://github.com/maaz/ai-content-generator",
       demo: "https://example.com/demo5",
+      image: "/ai-generator.jpg",
       featured: false,
     },
     {
@@ -82,8 +84,7 @@ export default function ProjectsSection() {
       description:
         "A real-time cryptocurrency portfolio tracking application with price alerts, news integration, and performance analytics.",
       tech: ["React", "CoinGecko API", "Redux", "Material-UI"],
-      github: "https://github.com/maaz/crypto-tracker",
-      demo: "https://example.com/demo6",
+      image: "/crypto-tracker.jpg",
       featured: false,
     },
     {
@@ -91,8 +92,9 @@ export default function ProjectsSection() {
       description:
         "A comprehensive LMS platform with course creation, student progress tracking, and interactive learning modules.",
       tech: ["React", "Node.js", "MongoDB", "Socket.io"],
-      github: "https://github.com/maaz/lms-platform",
+      privateRepo: true,
       demo: "https://example.com/demo7",
+      image: "/lms.jpg",
       featured: false,
     },
     {
@@ -102,6 +104,7 @@ export default function ProjectsSection() {
       tech: ["Vue.js", "Express", "MySQL", "Stripe"],
       github: "https://github.com/maaz/restaurant-booking",
       demo: "https://example.com/demo8",
+      image: "/restaurant.jpg",
       featured: false,
     },
   ]
@@ -148,22 +151,13 @@ export default function ProjectsSection() {
                 </div>
 
                 <CardContent className="p-0">
-                  {/* Demo Video Placeholder */}
-                  <div
-                    className="relative h-48 bg-gradient-to-br from-blue-500 to-purple-600 rounded-t-lg overflow-hidden cursor-pointer"
-                    onClick={() => openDemoModal(project)}
-                  >
+                  {/* Project Image */}
+                  <div className="relative h-48 rounded-t-lg overflow-hidden">
                     <img
-                      src={`/placeholder.svg?height=200&width=400&text=${encodeURIComponent(project.title)}`}
-                      alt={`${project.title} thumbnail`}
-                      className="w-full h-full object-cover"
+                      src={project.image || `/placeholder.svg?height=200&width=400&text=${encodeURIComponent(project.title)}`}
+                      alt={`${project.title} screenshot`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                      <div className="text-white text-center">
-                        <ExternalLink className="h-12 w-12 mx-auto mb-2 opacity-80 group-hover:scale-110 transition-transform duration-300" />
-                        <p className="text-sm opacity-80">View Demo</p>
-                      </div>
-                    </div>
                   </div>
 
                   <div className="p-6">
@@ -184,23 +178,47 @@ export default function ProjectsSection() {
                     </div>
 
                     <div className="flex gap-3">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex-1 group-hover:border-blue-600 group-hover:text-blue-600 transition-all duration-300 bg-transparent hover:scale-105"
-                        onClick={() => window.open(project.github, "_blank")}
-                      >
-                        <Github className="h-4 w-4 mr-2" />
-                        GitHub
-                      </Button>
-                      <Button
-                        size="sm"
-                        className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-300"
-                        onClick={() => openDemoModal(project)}
-                      >
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Demo
-                      </Button>
+                      {project.github && !project.privateRepo && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="flex-1 group-hover:border-blue-600 group-hover:text-blue-600 transition-all duration-300 bg-transparent hover:scale-105"
+                          onClick={() => window.open(project.github, "_blank")}
+                        >
+                          <Github className="h-4 w-4 mr-2" />
+                          GitHub
+                        </Button>
+                      )}
+                      {project.privateRepo && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="flex-1 cursor-not-allowed opacity-70"
+                          disabled
+                        >
+                          <Github className="h-4 w-4 mr-2" />
+                          Private Repo
+                        </Button>
+                      )}
+                      {project.demo ? (
+                        <Button
+                          size="sm"
+                          className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-300"
+                          onClick={() => window.open(project.demo, "_blank")}
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Live Demo
+                        </Button>
+                      ) : (
+                        <Button
+                          size="sm"
+                          className="flex-1 bg-gray-300 dark:bg-gray-600 cursor-not-allowed opacity-70"
+                          disabled
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Demo Not Available
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </CardContent>
@@ -219,22 +237,13 @@ export default function ProjectsSection() {
                 className="group hover:shadow-xl transition-all duration-500 transform hover:-translate-y-3 border-0 shadow-lg project-card animate-on-scroll bg-white dark:bg-gray-800"
               >
                 <CardContent className="p-0">
-                  {/* Demo Video Placeholder */}
-                  <div
-                    className="relative h-48 bg-gradient-to-br from-green-500 to-teal-600 rounded-t-lg overflow-hidden cursor-pointer"
-                    onClick={() => openDemoModal(project)}
-                  >
+                  {/* Project Image */}
+                  <div className="relative h-48 rounded-t-lg overflow-hidden">
                     <img
-                      src={`/placeholder.svg?height=200&width=400&text=${encodeURIComponent(project.title)}`}
-                      alt={`${project.title} thumbnail`}
-                      className="w-full h-full object-cover"
+                      src={project.image || `/placeholder.svg?height=200&width=400&text=${encodeURIComponent(project.title)}`}
+                      alt={`${project.title} screenshot`}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
-                      <div className="text-white text-center">
-                        <ExternalLink className="h-12 w-12 mx-auto mb-2 opacity-80 group-hover:scale-110 transition-transform duration-300" />
-                        <p className="text-sm opacity-80">View Demo</p>
-                      </div>
-                    </div>
                   </div>
 
                   <div className="p-6">
@@ -255,23 +264,47 @@ export default function ProjectsSection() {
                     </div>
 
                     <div className="flex gap-3">
-                      <Button
-                        variant="outline"
-                        size="sm"
-                        className="flex-1 group-hover:border-green-600 group-hover:text-green-600 transition-all duration-300 bg-transparent hover:scale-105"
-                        onClick={() => window.open(project.github, "_blank")}
-                      >
-                        <Github className="h-4 w-4 mr-2" />
-                        GitHub
-                      </Button>
-                      <Button
-                        size="sm"
-                        className="flex-1 bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 hover:scale-105 transition-all duration-300"
-                        onClick={() => openDemoModal(project)}
-                      >
-                        <ExternalLink className="h-4 w-4 mr-2" />
-                        Demo
-                      </Button>
+                      {project.github && !project.privateRepo && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="flex-1 group-hover:border-green-600 group-hover:text-green-600 transition-all duration-300 bg-transparent hover:scale-105"
+                          onClick={() => window.open(project.github, "_blank")}
+                        >
+                          <Github className="h-4 w-4 mr-2" />
+                          GitHub
+                        </Button>
+                      )}
+                      {project.privateRepo && (
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          className="flex-1 cursor-not-allowed opacity-70"
+                          disabled
+                        >
+                          <Github className="h-4 w-4 mr-2" />
+                          Private Repo
+                        </Button>
+                      )}
+                      {project.demo ? (
+                        <Button
+                          size="sm"
+                          className="flex-1 bg-gradient-to-r from-green-600 to-teal-600 hover:from-green-700 hover:to-teal-700 hover:scale-105 transition-all duration-300"
+                          onClick={() => window.open(project.demo, "_blank")}
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Live Demo
+                        </Button>
+                      ) : (
+                        <Button
+                          size="sm"
+                          className="flex-1 bg-gray-300 dark:bg-gray-600 cursor-not-allowed opacity-70"
+                          disabled
+                        >
+                          <ExternalLink className="h-4 w-4 mr-2" />
+                          Demo Not Available
+                        </Button>
+                      )}
                     </div>
                   </div>
                 </CardContent>
@@ -281,10 +314,10 @@ export default function ProjectsSection() {
         </div>
       </div>
 
-      {/* Demo Modal */}
+      {/* Project Details Modal */}
       {isModalOpen && selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
             <div className="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{selectedProject.title}</h3>
               <Button
@@ -297,12 +330,12 @@ export default function ProjectsSection() {
               </Button>
             </div>
             <div className="p-6">
-              <div className="aspect-video bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg mb-6 flex items-center justify-center">
-                <div className="text-white text-center">
-                  <ExternalLink className="h-16 w-16 mx-auto mb-4 opacity-80" />
-                  <p className="text-xl font-semibold mb-2">Project Demo</p>
-                  <p className="text-sm opacity-80">Interactive demo would be displayed here</p>
-                </div>
+              <div className="rounded-lg mb-6 overflow-hidden">
+                <img
+                  src={selectedProject.image || `/placeholder.svg?height=400&width=800&text=${encodeURIComponent(selectedProject.title)}`}
+                  alt={`${selectedProject.title} screenshot`}
+                  className="w-full h-auto max-h-96 object-contain"
+                />
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -322,21 +355,35 @@ export default function ProjectsSection() {
                     ))}
                   </div>
                   <div className="flex gap-3">
-                    <Button
-                      variant="outline"
-                      onClick={() => window.open(selectedProject.github, "_blank")}
-                      className="flex-1"
-                    >
-                      <Github className="h-4 w-4 mr-2" />
-                      GitHub
-                    </Button>
-                    <Button
-                      onClick={() => window.open(selectedProject.demo, "_blank")}
-                      className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
-                    >
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Live Demo
-                    </Button>
+                    {selectedProject.github && !selectedProject.privateRepo ? (
+                      <Button
+                        variant="outline"
+                        onClick={() => window.open(selectedProject.github, "_blank")}
+                        className="flex-1"
+                      >
+                        <Github className="h-4 w-4 mr-2" />
+                        GitHub
+                      </Button>
+                    ) : selectedProject.privateRepo ? (
+                      <Button variant="outline" className="flex-1 cursor-not-allowed opacity-70" disabled>
+                        <Github className="h-4 w-4 mr-2" />
+                        Private Repo
+                      </Button>
+                    ) : null}
+                    {selectedProject.demo ? (
+                      <Button
+                        onClick={() => window.open(selectedProject.demo, "_blank")}
+                        className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+                      >
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        Live Demo
+                      </Button>
+                    ) : (
+                      <Button className="flex-1 bg-gray-300 dark:bg-gray-600 cursor-not-allowed opacity-70" disabled>
+                        <ExternalLink className="h-4 w-4 mr-2" />
+                        Demo Not Available
+                      </Button>
+                    )}
                   </div>
                 </div>
               </div>
