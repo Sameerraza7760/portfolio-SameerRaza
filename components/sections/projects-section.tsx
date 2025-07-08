@@ -108,7 +108,7 @@ export default function ProjectsSection() {
         "A secure and scalable backend system for a file drive/storage app built with Node.js, Express, MongoDB, and Cloudinary. It supports features like user authentication, file uploads, activity logs, and admin-level monitoring.",
       tech: ["React", "Node.js", "MongoDB", "Cloudnary"],
       github: "https://github.com/MuhammadMaaz2001/drive_backend",
-      image: "/lms.jpg",
+      image: "/images/filemanagement.png",
       featured: false,
     },
     {
