@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { toast } from 'sonner'
 
 export default function ContactSection() {
    const [formData, setFormData] = useState({
@@ -15,6 +16,7 @@ export default function ContactSection() {
     subject: "",
     message: "",
   });
+const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const observerOptions = {
@@ -40,17 +42,55 @@ export default function ContactSection() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
 
-    const data = {
-      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY, 
-      name: `${formData.firstName} ${formData.lastName}`,
-      email: formData.email,
-      subject: formData.subject,
-      message: formData.message,
-    };
+  //   const data = {
+  //     access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY, 
+  //     name: `${formData.firstName} ${formData.lastName}`,
+  //     email: formData.email,
+  //     subject: formData.subject,
+  //     message: formData.message,
+  //   };
 
+  //   try {
+  //     const response = await fetch("https://api.web3forms.com/submit", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify(data),
+  //     });
+
+  //     const result = await response.json();
+
+  //     if (result.success) {
+  //       alert("Message sent successfully!");
+  //       setFormData({
+  //         firstName: "",
+  //         lastName: "",
+  //         email: "",
+  //         subject: "",
+  //         message: "",
+  //       });
+  //     } else {
+  //       alert("Failed to send message.");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error sending message:", error);
+  //   }
+  // };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsLoading(true);
+
+  const data = {
+    access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+    name: `${formData.firstName} ${formData.lastName}`,
+    email: formData.email,
+    subject: formData.subject,
+    message: formData.message,
+  };
+
+  setTimeout(async () => {
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
@@ -61,7 +101,7 @@ export default function ContactSection() {
       const result = await response.json();
 
       if (result.success) {
-        alert("Message sent successfully!");
+        toast.success("Message sent successfully!");
         setFormData({
           firstName: "",
           lastName: "",
@@ -70,12 +110,16 @@ export default function ContactSection() {
           message: "",
         });
       } else {
-        alert("Failed to send message.");
+        toast.error("Failed to send message.");
       }
     } catch (error) {
+      toast.error("Error sending message.");
       console.error("Error sending message:", error);
+    } finally {
+      setIsLoading(false);
     }
-  };
+  }, 3000); // simulate 3 seconds delay
+};
 
   return (
     <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
@@ -231,9 +275,44 @@ export default function ContactSection() {
     />
   </div>
 
-  <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover-glow-button">
+  {/* <Button type="submit" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover-glow-button">
     Send Message
-  </Button>
+  </Button> */}
+
+<Button
+  type="submit"
+  disabled={isLoading}
+  className={`w-full flex justify-center items-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover-glow-button ${
+    isLoading ? "opacity-70 cursor-not-allowed" : ""
+  }`}
+>
+  {isLoading ? (
+    <svg
+      className="animate-spin h-5 w-5 text-white"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <circle
+        className="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="4"
+      />
+      <path
+        className="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8v8z"
+      />
+    </svg>
+  ) : (
+    "Send Message"
+  )}
+</Button>
+
+
 </form>
 
             </CardContent>
