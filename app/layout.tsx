@@ -3,7 +3,7 @@ import './globals.css'
 import { Toaster } from 'sonner'
 
 export const metadata: Metadata = {
-  title: 'Maaz',
+  title: 'Sameer Raza',
   description: 'Software Engineer | Frontend Developer | MERN Stack Devloper',
   
 }

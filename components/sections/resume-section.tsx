@@ -3,16 +3,16 @@
 import { Download, FileText, User, Briefcase, GraduationCap, Award } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-
+import { CheckCircle } from 'lucide-react';
 export default function ResumeSection() {
   const downloadCV = () => {
-  const link = document.createElement("a");
-  link.href = "/Muhammad-Maaz-CV.pdf"; 
-  link.download = "Muhammad_Maaz_CV.pdf"; 
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
+    const link = document.createElement("a");
+    link.href = "/Muhammad-Maaz-CV.pdf";
+    link.download = "Muhammad_Maaz_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
 
   return (
@@ -49,15 +49,15 @@ export default function ResumeSection() {
                   <div className="w-24 h-24 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center">
                     {/* <User className="h-12 w-12 text-white" /> */}
                     <img
-    src="/images/maaz.png"
-    alt="Profile"
-    className="w-full h-full object-cover rounded-full"
-  />
+                      src="/images/sameerrazaimage.jpg"
+                      alt="Profile"
+                      className="w-full h-full object-cover rounded-full"
+                    />
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Muhammad Maaz</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Sameer Raza</h3>
                   <p className="text-lg text-blue-600 dark:text-blue-400 font-medium">Software Engineer</p>
                   <p className="text-gray-600 dark:text-gray-400 mt-2">
-                    maazm6387@gmail.com | +92 3102400211 | Karachi , Pakistan
+                    sameerraza7764@gmail.com | +92 3162935161 | Karachi , Pakistan
                   </p>
                 </div>
 
@@ -70,11 +70,14 @@ export default function ResumeSection() {
                       Professional Summary
                     </h4>
                     <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
-                      A dedicated and detail-oriented Frontend Developer with strong command over modern JavaScript frameworks 
-including React, Vue3, and SvelteKit. I specialize in building responsive UI/UX designs and integrating APIs, with 
-working knowledge of backend technologies like Node.js, Express, and Python’s FastAPI. I am well-versed in SDLC, 
-Agile & SCRUM methodologies, and tools like JIRA and Git. Known for cross-functional collaboration, clean code 
-practices, debugging, and a research-driven approach, I aim to deliver scalable and efficient web applications.
+                      Accomplished Full Stack Developer specializing in Next.js, React.js, Node.js, and TypeScript. Proven track
+                      record of delivering high-performance web applications and solving complex technical challenges. Expertise
+                      in Docker, MongoDB, and Tailwind for building scalable, maintainable solutions. Passionate about clean
+                      code, optimizing user experiences through innovative design and best practices. Delivered key projects,
+                      such as employee payroll systems, inventory management, and finance apps, driving operational efficiency
+                      and streamlining business processes. Always eager to learn, grow, and tackle the toughest problems —
+                      let’s connect and build something amazing! 🚀
+
                     </p>
                   </div>
 
@@ -84,22 +87,37 @@ practices, debugging, and a research-driven approach, I aim to deliver scalable 
                       <Briefcase className="h-4 w-4 text-blue-600 mr-3" />
                       Experience
                     </h4>
-                    <div className="space-y-3">
-                      <div className="border-l-2 border-blue-200 dark:border-blue-800 pl-4">
-                        <h5 className="font-semibold text-gray-900 dark:text-white text-sm">
-                          React Developer - BRB Group
-                        </h5>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">Nov 2024 - Present</p>
-                        <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
-                          Led frontend development of payroll and finance management interfaces...
-                        </p>
+                    <div className="space-y-6">
+                      <div className="space-y-6">
+                        <div className="border-l-4 border-blue-500 dark:border-blue-800 pl-6">
+                          <h5 className="font-semibold text-gray-900 dark:text-white text-lg">
+                            React Developer - BRB Group
+                          </h5>
+                          <p className="text-xs text-gray-500 dark:text-gray-400">Nov 2024 - Present</p>
+                          <ul className="text-xs text-gray-600 dark:text-gray-400 mt-4 list-inside">
+                            <li className="flex items-start mb-3">
+                              <CheckCircle className="h-3 w-3 mr-3 text-blue-500" /> {/* Heroicon */}
+                              Developed automated payroll and document management systems, enhancing operational efficiency.
+                            </li>
+                            <li className="flex items-start mb-3">
+                              <CheckCircle className="h-3 w-3 mr-3 text-blue-500" />
+                              Built an inventory management system, optimizing resource tracking and management processes.
+                            </li>
+                            <li className="flex items-start mb-3">
+                              <CheckCircle className="h-3 w-3 mr-3 text-blue-500" />
+                              Contributed to finance applications, automating financial workflows and improving company operations.
+                            </li>
+                            <li className="flex items-start mb-3">
+                              <CheckCircle className="h-3 w-3 mr-3 text-blue-500" />
+                              Delivered scalable, user-centric solutions, collaborating with cross-functional teams to meet both internal and client requirements.
+                            </li>
+
+                          </ul>
+                        </div>
                       </div>
-                      <div className="border-l-2 border-gray-200 dark:border-gray-700 pl-4">
-                        <h5 className="font-semibold text-gray-900 dark:text-white text-sm">
-                          Frontend Developer - Neuramatics.Co.
-                        </h5>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">Nov 2023 - Feb 2024</p>
-                      </div>
+
+
+
                     </div>
                   </div>
 
@@ -111,10 +129,13 @@ practices, debugging, and a research-driven approach, I aim to deliver scalable 
                     </h4>
                     <div className="border-l-2 border-blue-200 dark:border-blue-800 pl-4">
                       <h5 className="font-semibold text-gray-900 dark:text-white text-sm">
-                        B.S. Software Engineering - SSUET
+                        B.S. Software Engineering - VU University
                       </h5>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">2024 | GPA: 3.16/4.0</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">
+                        April 2025 - Present
+                      </p>
                     </div>
+
                   </div>
 
                   {/* Skills Preview */}
@@ -124,7 +145,7 @@ practices, debugging, and a research-driven approach, I aim to deliver scalable 
                       Technical Skills
                     </h4>
                     <div className="flex flex-wrap gap-2">
-                      {["React", "Node.js", "TypeScript","Python" ,"MongoDB", "Next.js", "Vue.js"].map((skill) => (
+                      {["React", "Nextjs","Nodejs","Express","MongoDB","Firebase", "TypeScript","Prisma","Docker"].map((skill) => (
                         <span
                           key={skill}
                           className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 text-xs rounded-full"
@@ -190,3 +211,5 @@ practices, debugging, and a research-driven approach, I aim to deliver scalable 
     </section>
   )
 }
+
+

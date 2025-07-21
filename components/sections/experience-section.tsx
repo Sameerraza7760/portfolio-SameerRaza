@@ -39,65 +39,12 @@ export default function ExperienceSection() {
       description:
         "I led the frontend development of intuitive payroll, document, and finance management interfaces, streamlining workflows and enhancing data accuracy. I crafted a unified IT and inventory dashboard featuring ticketing, device monitoring, asset allocation, and automated hosting reminders. I also engineered the frontend for an AI-driven content automation tool that generates SEO-focused blog posts and schedules social media campaigns.",
       achievements: [
-        "Improved workflow efficiency by 40%",
-        "Led frontend development efforts while collaborating cross-functionally with design and backend teams to deliver high-quality user interfaces.",
-        "Implemented AI-driven automation tools",
-      ],
-    },
-    {
-      title: "React Development",
-      company: "BRB Group",
-      period: "Aug 2024 – Sep 2024",
-      type: "Contract",
-      icon: "/images/brb_developers_logo.jpeg",
-      // color: "from-green-600 to-green-800",
-      description:
-        "Assisted in front-end development with a focus on UI/UX, API integration, and Git. Collaborated with cross-functional teams to streamline data handling and improve user experience.",
-      achievements: [
-        "Enhanced API integration performance",
-        "Improved user experience metrics",
-        "Streamlined development workflow",
-      ],
-    },
-    {
-      title: "Frontend Developer",
-      company: "Neuramatics.Co.",
-      period: "Nov 2023 - Feb 2024",
-      type: "Contract",
-      icon: "/images/neuramatics.jpeg",
-      // color: "from-purple-600 to-purple-800",
-      description:
-        "Frontend Developer at Neuramatics.Co. as a frontend developer, where I gained hands-on experience with React.js Library in JavaScript. My responsibilities included development in front-end tasks, debugging code, and collaborating with the project team to enhance user interface functionality and improvement of overall UI/UX Experience.",
-      achievements: ["Delivered 5+ React.js projects", "Reduced bug reports by 30%", "Enhanced UI/UX design patterns"],
-    },
-    {
-      title: "Frontend Support Developer",
-      company: "Dimensional Sys, Inc.",
-      period: "Aug 2023 - Nov 2023",
-      type: "Internship",
-      icon: "/images/dimensional_systems_logo.jpeg",
-      // color: "from-orange-600 to-orange-800",
-      description:
-        "Frontend Support Intern at Dimensional Sys, Inc. – Gained hands-on experience with React.js and Vue 3, assisting in development, debugging, and UI enhancements. Developed interactive data visualizations and charting components using D3.js. Where I learned reverse engineering of legacy front-end code to troubleshoot defects, document architecture, and drive performance improvements.",
-      achievements: [
-        "Mastered D3.js data visualizations",
-        "Reverse engineered legacy systems",
-        "Improved system performance by 25%",
-      ],
-    },
-    {
-      title: "Intern",
-      company: "Coderatory",
-      period: "Feb 2022 - Apr 2022",
-      type: "Internship",
-      icon: "/images/coderatory_logo.jpeg",
-      // color: "from-teal-600 to-teal-800",
-      description:
-        "At Coderatory internship, I learned web development tech, including Node.js for fast apps and Express.js for easy web dev. Gained hands-on MongoDB experience for structured data storage. Improved web app creation and data management skills.",
-      achievements: [
-        "Built first full-stack application",
-        "Learned MongoDB fundamentals",
-        "Completed 3 web development projects",
+        "Developed automated payroll and document management systems, improving operational efficiency",
+        "Built an inventory management system, streamlining resource tracking and management.",
+        "Contributed to finance applications, automating financial processes and enhancing company operations",
+        "Delivered scalable, user-friendly solutions, collaborating with cross-functional teams to meet internaland client needs.",
+        "Designed and developed AI-powered chatbots using OpenAI and custom APIs, enabling automated customer support, ticket generation, and internal workflow assistance, which reduced manual query handlingtime by over 60 %."
+
       ],
     },
   ]
@@ -141,11 +88,11 @@ export default function ExperienceSection() {
                       className={`bg-gradient-to-r ${exp.color} p-5 rounded-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-xl`}
                     >
                       {/* <span className="text-3xl text-white filter drop-shadow-lg">{exp.icon}</span> */}
-                                   <img
-  src={exp.icon}
-  
-  className="w-14 h-14 rounded-md object-contain"
-/>
+                      <img
+                        src={exp.icon}
+
+                        className="w-14 h-14 rounded-md object-contain"
+                      />
                     </div>
                     <div>
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300">
@@ -157,13 +104,12 @@ export default function ExperienceSection() {
                   <div className="flex flex-col lg:items-end">
                     <span className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-3">{exp.period}</span>
                     <span
-                      className={`text-sm px-6 py-3 rounded-full transition-all duration-300 hover:scale-110 font-medium shadow-md ${
-                        exp.type === "Full-time"
-                          ? "bg-gradient-to-r from-green-100 to-green-200 dark:from-green-900/30 dark:to-green-800/30 text-green-800 dark:text-green-300"
-                          : exp.type === "Contract"
-                            ? "bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 text-blue-800 dark:text-blue-300"
-                            : "bg-gradient-to-r from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/30 text-orange-800 dark:text-orange-300"
-                      }`}
+                      className={`text-sm px-6 py-3 rounded-full transition-all duration-300 hover:scale-110 font-medium shadow-md ${exp.type === "Full-time"
+                        ? "bg-gradient-to-r from-green-100 to-green-200 dark:from-green-900/30 dark:to-green-800/30 text-green-800 dark:text-green-300"
+                        : exp.type === "Contract"
+                          ? "bg-gradient-to-r from-blue-100 to-blue-200 dark:from-blue-900/30 dark:to-blue-800/30 text-blue-800 dark:text-blue-300"
+                          : "bg-gradient-to-r from-orange-100 to-orange-200 dark:from-orange-900/30 dark:to-orange-800/30 text-orange-800 dark:text-orange-300"
+                        }`}
                     >
                       {exp.type}
                     </span>

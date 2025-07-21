@@ -154,77 +154,47 @@ export default function AboutSection() {
 
   const education = [
     {
-      degree: "B.S. (Software Engineering)",
-      institution: "SSUET",
-      year: "2024",
+      degree: "B.S.C.S (Computer Science)",
+      institution: "Virtual University of Pakistan",
+      year: "2025 (April - Present)",
       type: "Bachelor's Degree",
       description: "Focused on software development methodologies, algorithms, and system design.",
-      gpa: "3.16/4.0",
-      icon: "/images/ssuet-removebg-preview.png",
+      icon: "/images/VU.png",
     },
     {
-      degree: "Senior Secondary (Pre-Engineering)",
-      institution: "Jinnah Govt. College",
-      year: "2020",
+      degree: "Computer Science",
+      institution: "Superior Science College ShahFaisal",
+      year: "2021-2023",
       type: "Higher Secondary",
-      description: "Mathematics, Physics, and Chemistry with engineering fundamentals.",
-      gpa: "C Grade",
+      description: "Mathematics, Physics, and ComputerScience with engineering fundamentals.",
+      gpa: "B Grade",
       icon: "/images/Sample_User_Icon.png",
     },
     {
       degree: "High School (Computer Science)",
-      institution: "Al Huda School",
-      year: "2018",
+      institution: "Al Kamran Public School",
+      year: "2008-2021",
       type: "Secondary School",
       description: "Introduction to programming concepts and computer science principles.",
-      gpa: "A Grade",
-      icon: "/images/alhuda.png",
+      gpa: "A-1 Grade",
+      icon: "/images/alkamran.png",
     },
   ]
 
   const certifications = [
-    {
-      title: "Project Management",
-      provider: "Great Learning",
-      year: "2024",
-      icon: "/images/great_learning_logo.jpeg",
-      // color: "bg-blue-500",
-    },
-    {
-      title: "Managing Agile Scrum Project with JIRA",
-      provider: "10 Pearls University",
-      year: "2024",
-      icon: "/images/10pearls_university_logo.jpeg",
-      // color: "bg-green-500",
-    },
-    {
-      title: "Agile & Scrum",
-      provider: "10 Pearls University",
-      year: "2024",
-      icon: "/images/10pearls_university_logo.jpeg",
-      // color: "bg-orange-500",
-    },
-    {
-      title: "Front-End Web UI Frameworks & Tools: Bootstrap 4",
-      provider: "Coursera",
+      {
+      title: "FullStack Web Development",
+      provider: "Saylani Mass It Training",
       year: "2023",
-      icon: "/images/coursera_logo.jpeg",
-      // color: "bg-purple-500",
+      icon: "/images/smit.png",
     },
-    
+  
     {
       title: "React Js",
       provider: "Coursera",
       year: "2023",
       icon: "/images/coursera_logo.jpeg",
       // color: "bg-cyan-500",
-    },
-    {
-      title: "Python Basic & Python DSA",
-      provider: "Coursera",
-      year: "2023",
-      icon: "/images/coursera_logo.jpeg",
-      // color: "bg-yellow-500",
     },
   ]
 
@@ -260,44 +230,32 @@ export default function AboutSection() {
             </div>
 
             {/* Skills Grid - YOUR ACTUAL SKILLS */}
-            <div className="skills-grid space-y-6">        
-            
+            <div className="skills-grid space-y-6">
+
               {/* Frontend Skills */}
               <div className="flex flex-wrap justify-center gap-4">
                 <span className="skill-badge">React.Js</span>
-                <span className="skill-badge">Vue3.Js</span>
                 <span className="skill-badge">Next.js</span>
-                <span className="skill-badge">Svelte.Js</span>
+                <span className="skill-badge">Tailwind CSS</span>
               </div>
 
               {/* Backend Skills */}
               <div className="flex flex-wrap justify-center gap-4">
                 <span className="skill-badge">Node.js</span>
                 <span className="skill-badge">Express.js</span>
-                <span className="skill-badge">FastAPI (Python)</span>
+                <span className="skill-badge">Prisma</span>
+                <span className="skill-badge">TypeScript</span>
               </div>
 
               {/* Database & Tools */}
               <div className="flex flex-wrap justify-center gap-4">
-                
+
                 <span className="skill-badge">MongoDB</span>
-                    <span className="skill-badge">Python</span>
-                <span className="skill-badge">TypeScript</span>
+                <span className="skill-badge">PostgreSQL</span>
+                <span className="skill-badge">Firebase</span>
+                <span className="skill-badge">Docker</span>
+
                 <span className="skill-badge">GitHub</span>
-              </div>
-
-              {/* Specialized Skills */}
-              <div className="flex flex-wrap justify-center gap-4">
-                <span className="skill-badge">Data Visualization</span>
-                <span className="skill-badge">D3</span>
-                <span className="skill-badge">Recharts</span>
-                <span className="skill-badge">Project Management</span>
-              </div>
-
-              <div className="flex flex-wrap justify-center gap-4">
-                <span className="skill-badge">Jira/SDLC</span>
-                <span className="skill-badge">Research & Development</span>
-                <span className="skill-badge">Reverse Engineering</span>
               </div>
             </div>
           </div>
@@ -322,11 +280,11 @@ export default function AboutSection() {
                     <div className="flex items-start space-x-6">
                       <div className="bg-white p-4 rounded-2xl group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
                         {/* <span className="text-2xl filter drop-shadow-lg">{edu.icon}</span> */}
-                                              <img
-  src={edu.icon}
-  
-  className="w-14 h-14 rounded-md object-contain"
-/>
+                        <img
+                          src={edu.icon}
+
+                          className="w-14 h-14 rounded-md object-contain"
+                        />
                       </div>
                       <div className="flex-1">
                         <div className="flex justify-between items-start mb-3">
@@ -374,10 +332,10 @@ export default function AboutSection() {
                       >
                         {/* <span className="text-white text-xl filter drop-shadow-sm">{cert.icon}</span> */}
                         <img
-  src={cert.icon}
-  alt={cert.title}
-  className="w-14 h-14 rounded-md object-contain"
-/>
+                          src={cert.icon}
+                          alt={cert.title}
+                          className="w-14 h-14 rounded-md object-contain"
+                        />
 
                       </div>
                       <div className="flex-1">

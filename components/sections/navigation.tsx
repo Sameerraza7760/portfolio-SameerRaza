@@ -25,7 +25,7 @@ export default function Navigation({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover-glow">
-            Muhammad Maaz
+            Sameer Raza
           </div>
 
           {/* Desktop Navigation */}
@@ -34,9 +34,8 @@ export default function Navigation({
               <button
                 key={section}
                 onClick={() => scrollToSection(section)}
-                className={`capitalize transition-all duration-300 hover:text-blue-600 dark:hover:text-blue-400 hover:scale-110 nav-link ${
-                  activeSection === section ? "text-blue-600 dark:text-blue-400 scale-110" : ""
-                }`}
+                className={`capitalize transition-all duration-300 hover:text-blue-600 dark:hover:text-blue-400 hover:scale-110 nav-link ${activeSection === section ? "text-blue-600 dark:text-blue-400 scale-110" : ""
+                  }`}
               >
                 {section}
               </button>
@@ -50,20 +49,20 @@ export default function Navigation({
                 variant="ghost"
                 size="icon"
                 className="rounded-full hover-bounce glow-hover"
-                onClick={() => window.open("https://github.com/MuhammadMaaz200", "_blank")}
+                onClick={() => window.open("https://github.com/Sameerraza7760", "_blank")}
               >
                 <Github className="h-5 w-5" />
               </Button>
-              {/* <Button
+              <Button
                 variant="ghost"
                 size="icon"
                 className="rounded-full hover-bounce glow-hover"
-                onClick={() => window.open("www.linkedin.com/in/muhammad-maaz-3a1838208/", "_blank")}
+                onClick={() => window.open("https://www.linkedin.com/in/sameer-raza-61b289265/", "_blank")}
               >
                 <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
                 </svg>
-              </Button> */}
+              </Button>
             </div>
 
             <Button variant="ghost" size="icon" onClick={toggleTheme} className="rounded-full hover-spin glow-hover">

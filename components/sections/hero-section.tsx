@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Code, Zap, Rocket } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -9,75 +9,68 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ scrollToSection }: HeroSectionProps) {
-  const heroTitleRef = useRef(null)
-  const heroSubtitleRef = useRef(null)
-  const heroDescriptionRef = useRef(null)
+  const heroTitleRef = useRef<HTMLHeadingElement | null>(null)
+  const heroDescriptionRef = useRef<HTMLParagraphElement | null>(null)
+
+  const [subtitleText, setSubtitleText] = useState("")
+  const cursorRef = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
-    initializeAnimations()
-  }, [])
-
-  const initializeAnimations = () => {
-    // Continuous hero title animation
-    if (heroTitleRef.current) {
-      const text = "Hello, I'm Muhammad Maaz"
-      const animateTitle = () => {
-        heroTitleRef.current.innerHTML = text
-          .split("")
-          .map((char, index) =>
-            char === " "
-              ? `<span class="space">&nbsp;</span>`
-              : `<span class="char" style="animation-delay: ${index * 0.1}s">${char}</span>`,
-          )
-          .join("")
-      }
-
-      animateTitle()
-      // Repeat animation every 8 seconds
-      setInterval(animateTitle, 8000)
-    }
-
-    // Continuous hero subtitle typewriter effect
-    if (heroSubtitleRef.current) {
-      const text = "Software Engineer"
-      const animateSubtitle = () => {
-        heroSubtitleRef.current.innerHTML = ""
-        text.split("").forEach((char, index) => {
-          setTimeout(() => {
-            if (heroSubtitleRef.current) {
-              heroSubtitleRef.current.innerHTML += char === " " ? "&nbsp;" : char
-            }
-          }, index * 100)
-        })
-
-        // Clear and restart after completion
-        setTimeout(
-          () => {
-            if (heroSubtitleRef.current) {
-              heroSubtitleRef.current.innerHTML = ""
-            }
-          },
-          text.length * 100 + 2000,
+    // Animate title
+    const textTitle = "Hello, I'm Sameer Raza"
+    const animateTitle = () => {
+      if (!heroTitleRef.current) return
+      heroTitleRef.current.innerHTML = textTitle
+        .split("")
+        .map((char, index) =>
+          char === " "
+            ? `<span class="space">&nbsp;</span>`
+            : `<span class="char" style="animation-delay: ${index * 0.1}s">${char}</span>`
         )
-      }
-
-      animateSubtitle()
-      // Repeat animation every 5 seconds
-      setInterval(animateSubtitle, 5000)
+        .join("")
     }
 
-    // Hero description wave animation
-    if (heroDescriptionRef.current) {
-      const words = heroDescriptionRef.current.textContent.split(" ")
-      heroDescriptionRef.current.innerHTML = words
-        .map((word, index) => `<span class="word" style="animation-delay: ${index * 0.1 + 2}s">${word}</span>`)
+    animateTitle()
+    const titleInterval = setInterval(animateTitle, 8000)
+
+    // Animate subtitle with typing
+    const fullSubtitle = "MERN Stack Developer • Focused on Clean Code & Scalable Systems"
+    let index = 0
+    const typeNext = () => {
+      if (index <= fullSubtitle.length) {
+        setSubtitleText(fullSubtitle.slice(0, index))
+        index++
+        setTimeout(typeNext, 80)
+      } else {
+        setTimeout(() => {
+          index = 0
+          setSubtitleText("")
+          setTimeout(typeNext, 800)
+        }, 3000)
+      }
+    }
+    typeNext()
+
+    // Animate description
+    const descEl = heroDescriptionRef.current
+    if (descEl) {
+      const words = descEl.textContent?.split(" ") ?? []
+      descEl.innerHTML = words
+        .map(
+          (word, index) =>
+            `<span class="word" style="animation-delay: ${index * 0.1 + 2}s">${word}</span>`
+        )
         .join(" ")
     }
-  }
+
+    return () => {
+      clearInterval(titleInterval)
+    }
+  }, [])
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-16 relative">
-      {/* Enhanced Animated Illustrations */}
+      {/* Floating Icons */}
       <div className="absolute top-20 right-10 opacity-30 dark:opacity-20 code-float glow-illustration">
         <Code className="h-16 w-16 text-blue-500" />
       </div>
@@ -88,25 +81,31 @@ export default function HeroSection({ scrollToSection }: HeroSectionProps) {
         <Rocket className="h-14 w-14 text-green-500" />
       </div>
 
+      {/* Hero Content */}
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <div>
           <h1
             ref={heroTitleRef}
             className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 text-gray-900 dark:text-white hero-title-animated"
           >
-            Hello, I'm Muhammad Maaz
+            Hello, I'm Sameer Raza
           </h1>
-          <p
-            ref={heroSubtitleRef}
-            className="text-xl sm:text-2xl lg:text-3xl text-gray-600 dark:text-gray-300 mb-8 hero-subtitle-typewriter min-h-[2.5rem]"
-          ></p>
+
+          <p className="text-xl sm:text-2xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 min-h-[2.5rem] flex justify-center items-center">
+            <span>{subtitleText}</span>
+            <span
+              ref={cursorRef}
+              className="ml-1 w-[1px] h-6 bg-gray-600 dark:bg-gray-300 animate-blink"
+            />
+          </p>
+
           <p
             ref={heroDescriptionRef}
             className="text-lg text-gray-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed hero-description-wave"
           >
-            Passionate about creating innovative solutions and building exceptional digital experiences. I specialize in
-            full-stack development with a focus on modern web technologies.
+            As a seasoned full-stack developer, I specialize in designing and building high-performance, scalable digital solutions that deliver exceptional user experiences. With a deep mastery of modern web technologies, I am committed to driving innovation and transforming complex challenges into impactful results.
           </p>
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center hero-buttons">
             <Button
               onClick={() => scrollToSection("projects")}
