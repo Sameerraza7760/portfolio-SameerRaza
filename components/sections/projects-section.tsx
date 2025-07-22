@@ -98,6 +98,15 @@ export default function ProjectsSection() {
       image: "/images/instello-ultimate-photo-sharing-html-template.webp",
       featured: false,
     },
+     {
+      title:"Discount Store",
+      description: "🚀 I built a Discount App in just 12 hours during a hackathon at my institute using React, Firebase, Firestore, Tailwind CSS, and Redux. The app supports both admin and user roles—admins can add discounted products, while users can browse, add to cart, and purchase. It features real-time updates, responsive design, and smooth state management, all completed within a single day.",
+      tech: ["React", "Firebase","Tailwind", "Redux","Firebase-Firestore"],
+      github: "https://github.com/Sameerraza7760/Discount-app",
+      image: "/images/saylani.png",
+      featured: false,
+      demo: "https://onlinestoresaylani.netlify.app/",
+    },
   ]
 
   const featuredProjects = allProjects.filter((project) => project.featured)
