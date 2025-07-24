@@ -39,8 +39,8 @@ export default function ProjectsSection() {
       tech: ["React", "Tailwind", "Firebase", "Redux", "Typescript"],
       github: "https://github.com/Sameerraza7760/foodpanda-with-react",
       image: "images/Foodpanda-turns-Sialkot-pink.jpg",
-      featured: true,
-      demo: "https://sameerrazafoodpanda.netlify.app",
+      featured: false,
+      demo: "https://food-panda-react-firebase.netlify.app/",
     },
     {
       title: "Ecommerce Store",
@@ -94,9 +94,9 @@ export default function ProjectsSection() {
       title: "Social Media App",
       description: "🚀 This is a full-stack social media application built with Next.js, TypeScript, and PostgreSQL, using Clerk for secure authentication. Users can sign up or log in, create posts with captions and images, like and comment on posts, send friend requests, and receive real-time notifications for all activities. The platform offers a modern, responsive UI with complete profile and friend management features.",
       tech: ["Nextjs-FullStack", "PostgreSQL","Prisma", "Typescript", "Shadcn", "Tailwindcss", "Clerk", "Cloudinary", "Redux"],
-      github: "https://github.com/MuhammadMaaz2001/file-sharing",
+      github: "https://github.com/Sameerraza7760/socialmediaapp",
       image: "/images/instello-ultimate-photo-sharing-html-template.webp",
-      featured: false,
+      featured: true,
     },
      {
       title:"Discount Store",
@@ -105,7 +105,7 @@ export default function ProjectsSection() {
       github: "https://github.com/Sameerraza7760/Discount-app",
       image: "/images/saylani.png",
       featured: false,
-      demo: "https://onlinestoresaylani.netlify.app/",
+      demo: "https://hacatone-discount-store.netlify.app/",
     },
   ]
 
