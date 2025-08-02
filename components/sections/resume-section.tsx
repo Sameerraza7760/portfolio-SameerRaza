@@ -7,8 +7,8 @@ import { CheckCircle } from 'lucide-react';
 export default function ResumeSection() {
   const downloadCV = () => {
     const link = document.createElement("a");
-    link.href = "/Muhammad-Maaz-CV.pdf";
-    link.download = "Muhammad_Maaz_CV.pdf";
+    link.href = "/SameerRaza-CV.pdf";
+    link.download = "SameerRaza_CV.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
