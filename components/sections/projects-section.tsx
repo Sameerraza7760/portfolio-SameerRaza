@@ -98,6 +98,7 @@ export default function ProjectsSection() {
       image: "/images/instello-ultimate-photo-sharing-html-template.webp",
       featured: true,
     },
+    
      {
       title:"Discount Store",
       description: "🚀 I built a Discount App in just 12 hours during a hackathon at my institute using React, Firebase, Firestore, Tailwind CSS, and Redux. The app supports both admin and user roles—admins can add discounted products, while users can browse, add to cart, and purchase. It features real-time updates, responsive design, and smooth state management, all completed within a single day.",
@@ -177,49 +178,6 @@ export default function ProjectsSection() {
                       ))}
                     </div>
 
-                    {/* <div className="flex gap-3">
-                      {project.github && !project.privateRepo && (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="flex-1 group-hover:border-blue-600 group-hover:text-blue-600 transition-all duration-300 bg-transparent hover:scale-105"
-                          onClick={() => window.open(project.github, "_blank")}
-                        >
-                          <Github className="h-4 w-4 mr-2" />
-                          GitHub
-                        </Button>
-                      )}
-                      {project.privateRepo && (
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          className="flex-1 cursor-not-allowed opacity-70"
-                          disabled
-                        >
-                          <Github className="h-4 w-4 mr-2" />
-                          Private Repo
-                        </Button>
-                      )}
-                      {project.demo ? (
-                        <Button
-                          size="sm"
-                          className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 hover:scale-105 transition-all duration-300"
-                          onClick={() => window.open(project.demo, "_blank")}
-                        >
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          Live Demo
-                        </Button>
-                      ) : (
-                        <Button
-                          size="sm"
-                          className="flex-1 bg-gray-300 dark:bg-gray-600 cursor-not-allowed opacity-70"
-                          disabled
-                        >
-                          <ExternalLink className="h-4 w-4 mr-2" />
-                          Demo Not Available
-                        </Button>
-                      )}
-                    </div> */}
                     <div className="flex gap-3">
                       {/* GitHub Button */}
                       {project.github ? (
