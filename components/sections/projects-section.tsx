@@ -43,6 +43,15 @@ export default function ProjectsSection() {
       demo: "https://food-panda-react-firebase.netlify.app/",
     },
     {
+      title: "Social Media App",
+      description: "🚀 This is a full-stack social media application built with Next.js, TypeScript, and PostgreSQL, using Clerk for secure authentication. Users can sign up or log in, create posts with captions and images, like and comment on posts, send friend requests, and receive real-time notifications for all activities. The platform offers a modern, responsive UI with complete profile and friend management features.",
+      tech: ["Nextjs-FullStack", "PostgreSQL","Prisma", "Typescript", "Shadcn", "Tailwindcss", "Clerk", "Cloudinary", "Redux","Socket.io"],
+      github: "https://github.com/Sameerraza7760/socialmediaapp",
+      image: "/images/instello-ultimate-photo-sharing-html-template.webp",
+      featured: true,
+      demo:"https://socialmediaapp-gamma.vercel.app/"
+    },
+    {
       title: "Ecommerce Store",
       description:
         "🛒 A feature-rich e-commerce web app where admins manage products using CRUD operations. Users can browse, search, and place orders seamlessly. The app includes real-time order status, user-admin chat, and secure Firebase integration for a fast and scalable experience. It ensures smooth operations for both users and admins with a focus on usability and performance and user for order support.",
@@ -90,17 +99,7 @@ export default function ProjectsSection() {
       image: "/images/true-feedback.webp", // Unique image
       featured: true,
     },
-    {
-      title: "Social Media App",
-      description: "🚀 This is a full-stack social media application built with Next.js, TypeScript, and PostgreSQL, using Clerk for secure authentication. Users can sign up or log in, create posts with captions and images, like and comment on posts, send friend requests, and receive real-time notifications for all activities. The platform offers a modern, responsive UI with complete profile and friend management features.",
-      tech: ["Nextjs-FullStack", "PostgreSQL","Prisma", "Typescript", "Shadcn", "Tailwindcss", "Clerk", "Cloudinary", "Redux","Socket.io"],
-      github: "https://github.com/Sameerraza7760/socialmediaapp",
-      image: "/images/instello-ultimate-photo-sharing-html-template.webp",
-      featured: true,
-      demo:"https://f09d345a-8d00-46a8-8eb2-4905d6e62b38-00-3ten2yihi6uog.kirk.replit.dev/"
-      
-      
-    },
+    
     
      {
       title:"Discount Store",
