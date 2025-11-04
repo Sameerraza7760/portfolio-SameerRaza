@@ -97,6 +97,9 @@ export default function ProjectsSection() {
       github: "https://github.com/Sameerraza7760/socialmediaapp",
       image: "/images/instello-ultimate-photo-sharing-html-template.webp",
       featured: true,
+      demo:"https://f09d345a-8d00-46a8-8eb2-4905d6e62b38-00-3ten2yihi6uog.kirk.replit.dev/"
+      
+      
     },
     
      {
