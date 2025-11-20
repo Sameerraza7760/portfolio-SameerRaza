@@ -98,6 +98,7 @@ export default function ProjectsSection() {
       github: "https://github.com/Sameerraza7760/TrueFeedback", // Unique URL
       image: "/images/true-feedback.webp", // Unique image
       featured: true,
+      demo: "https://true-feedback-oqdv.vercel.app/",
     },
     
     
